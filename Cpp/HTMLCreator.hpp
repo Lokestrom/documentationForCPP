@@ -1,8 +1,3 @@
-#include <fstream>
-#include <iostream>
-#include "String.hpp"
-#include <filesystem>
-
 Vector<String>* fileName;
 std::ifstream* ifile;
 std::ofstream* ofile;

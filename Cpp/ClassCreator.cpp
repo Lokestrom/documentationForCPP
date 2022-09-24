@@ -1,15 +1,19 @@
 #include <fstream>
+#include <iostream>
+#include "String.hpp"
+#include <filesystem>
+
 #include "HTMLCreator.hpp"
 
 using namespace Database;
 
 int main(const int argc, const char* file)
 {
-	String argv(file);
-	fileName = new Vector<String>(argv[1].split('/'));
+	String s(file[1]);
+	fileName = new Vector<String>(s.split('/'));
 	String className = fileName[fileName->size()-1].split('.')[0];
-	ifile = new std::ifstream(argv[1]);
-	ofile = new std::ofstream(className + ".html");
+	ifile = new std::ifstream(toSTD(s));
+	ofile = new std::ofstream(toSTD(className) + ".html");
 	String text;
 
 	*ofile << "<!DOCTYPE html>\n"

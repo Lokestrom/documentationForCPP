@@ -1,7 +1,11 @@
 #include "HTMLCreator.hpp"
+#include <fstream>
+#include <iostream>
 #include "String.hpp"
+#include <filesystem>
 
 using namespace Database;
+namespace fs = std::filesystem;
 
 definitions::definitions() {
 	for (int i = 48; i < 58; i++)
