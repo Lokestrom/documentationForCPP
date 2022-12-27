@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<head>
+	<link rel = "stylesheet" href="../../documentationStyles/all.css">
+	<link rel="stylesheet" href="../../documentationStyles/class.css">
+</head>
+
+<header>
+	<a class = "homeButton" href="../../main.html">Home</a>
+	<a class = "libButton" href="../Database.html">Database</a>
+    <h1 class = "white underline">String</h1>
+</header>
+
+<body class="background white">
+	<div>
+		<p class="header">
+			<span>Defined in header</span>
+			<a href="https://github.com/Lokestrom/database/blob/main/database/Include/String.hpp">"String.hpp"</a>
+			<br>
+			<span>Code in</span>
+			<a href="https://github.com/Lokestrom/database/blob/main/database/scr/String.cpp">"String.cpp"</a>
+		</p>
+<p class="declaration"><a class="blue">class</a> <a class="classGreen">String</a>;</p>
+</div>
+<span class="description">Class description:
+<br>
+The string is just a <a class="classGreen" href="../../../HTML/Database/classes/Vector.html">Vector</a>&lt;<a class="blue">char</a>&gt; with more fungtions to work with the string</span>
+    <br><br> 
+ <h2 style="line-height: 0px;"> Member fungtions </h2>
+
+ <table class="linkToFungtionsTable"><tr>
+<th><a class = "blue" href = "../String/Constructor.html">Constructor</a></th>
+<th><span>Constructs the <a class="classGreen">String</a></span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/operator=.html">operator=</a></th>
+<th><span>assignes a value to the <a class="classGreen">String</a></span>
+</th>
+</tr>
+<tr>
+<th>
+<h4 style="line-height: 0px;">Element access</h4>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/operator[].html">operator[]</a></th>
+<th><span>accesses the sepcified index</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/operator().html">operator()</a></th>
+<th><span>returns a substring</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/at.html">at</a></th>
+<th><span>accesses the sepcified index with range checking</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/data.html">data</a></th>
+<th><span>returnss a pointer ro the first character</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/vectorData.html">vectorData</a></th>
+<th><span>returns the vector of the <a class="classGreen">String</a></span>
+</th>
+</tr>
+<tr>
+<th>
+<h4 style="line-height: 0px;">Iterator</h4>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/begin.html">begin</a></th>
+<th><span>returns a pointer to the first character</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/end.html">end</a></th>
+<th><span>returns a pointer to the last+1 character</span>
+</th>
+</tr>
+<tr>
+<th>
+<h4 style="line-height: 0px;">Capacity</h4>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/empty.html">empty</a></th>
+<th><span>checks if the <a class="classGreen">String</a> is empty</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/capacity.html">capacity</a></th>
+<th><span>returns the number of characters that can be held in currently<br>allocated storage <a class="fungtion" href="../String/.html"></a>(capacity of the <a class="classGreen" href="../../../HTML/Database/classes/Vector.html">Vector</a>)</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/length.html">length</a></th>
+<th><span>returns the number of characters</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/reserve.html">reserve</a></th>
+<th><span>reserves storage</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/shrinkToFit.html">shrinkToFit</a></th>
+<th><span>shrinks the storage use to the number of characters;<br>freeing up memory</span>
+</th>
+</tr>
+<tr>
+<th>
+<h4 style="line-height: 0px;">Operations</h4>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/pushBack.html">pushBack</a></th>
+<th><span>pushes a character to the end of the <a class="classGreen">String</a></span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/popBack.html">popBack</a></th>
+<th><span>pops the character at the end of the <a class="classGreen">String</a></span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/insert.html">insert</a></th>
+<th><span>inserts characters</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/pop.html">pop</a></th>
+<th><span>pops characters</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/clear.html">clear</a></th>
+<th><span>clears the string</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/lower.html">lower</a></th>
+<th><span>converts the <a class="classGreen">String</a> to lowercase</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/upper.html">upper</a></th>
+<th><span>converts the <a class="classGreen">String</a> to uppercase</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/operator+=.html">operator+=</a></th>
+<th><span>appends characters to the end</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/split.html">split</a></th>
+<th><span>splits the string in to a <a class="classGreen" href="../../../HTML/Database/classes/Vector.html">Vector</a> of strings</span>
+</th>
+</tr>
+<tr>
+<th>
+<h4 style="line-height: 0px;">Search</h4>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/contains.html">contains</a></th>
+<th><span>checks if the <a class="classGreen">String</a> contains a substring</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/linearSearch.html">linearSearch</a></th>
+<th><span>find the first occurrence of a substring</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/linearSearchR.html">linearSearchR</a></th>
+<th><span>find the last occurrence of a substring</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/binarySearch.html">binarySearch</a></th>
+<th><span>search for a character in a sorted <a class="classGreen">String</a></span>
+</th>
+</tr>
+<tr>
+<th>
+<h4 style="line-height: 0px;">Sort</h4>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/mergeSort.html">mergeSort</a></th>
+<th><span>merge sorts the <a class="classGreen">String</a></span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/bubbleSort.html">bubbleSort</a></th>
+<th><span>bubble sorts the <a class="classGreen">String</a></span>
+</th>
+</tr>
+</table>
+<br>
+<h2 style = "line-height: 0px;">Non-Member fungtions</h2>
+<table class = "linkToFungtionsTable"><tr>
+<th><a class = "blue" href = "../String/operator+.html">operator+</a></th>
+<th><span>adds to strings together</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/operator==.html">operator==</a></th>
+<th><span>checks if to Strings are the same</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/operator!=.html">operator!=</a></th>
+<th><span>checks if to Strings are not the same</span>
+</th>
+</tr>
+<tr>
+<th>
+<h4 style="line-height: 0px;">Input/Output</h4>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/operator<<.html">operator<<</a></th>
+<th><span>stream output</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/operator>>.html">operator>></a></th>
+<th><span>stream input</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/getline.html">getline</a></th>
+<th><span>gets a line from file</span>
+</th>
+</tr>
+<tr>
+<th>
+<h4 style="line-height: 0px;">Conversion</h4>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/toS.html">toS</a></th>
+<th><span>converts numbers to <a class="classGreen">String</a></span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/STo....html">STo...</a></th>
+<th><span>converts <a class="classGreen">String</a> to number</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/toSTD.html">toSTD</a></th>
+<th><span>returns an std::string</span>
+</th>
+</tr>
+<tr>
+<th>
+<h4 style="line-height: 0px;">Operations</h4>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/substringIndex.html">substringIndex</a></th>
+<th><span>returns the index of a substring</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../String/canStringConvertToNumber.html">canStringConvertToNumber</a></th>
+<th><span>checks if the string can be converted to a number</span>
+</th>
+</tr>
+</table><br><br><br><br><br><br><br><br><br>
+</body>

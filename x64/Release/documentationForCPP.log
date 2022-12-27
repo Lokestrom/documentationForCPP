@@ -1,0 +1,8 @@
+﻿  ClassCreator.cpp
+  CompileAll.cpp
+  FungtionCreator.cpp
+  HTMLCreator.cpp
+  LibraryAndProjectPageCreator.cpp
+  MainCreator.cpp
+CompileAll.obj : error LNK2001: unresolved external symbol "public: __int64 __cdecl Database::String::linearSearch(char)" (?linearSearch@String@Database@@QEAA_JD@Z)
+D:\code\codeProsjekt\documentationForCPP\x64\Release\documentationForCPP.exe : fatal error LNK1120: 1 unresolved externals

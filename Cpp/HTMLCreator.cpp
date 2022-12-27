@@ -1,11 +1,14 @@
 #include "HTMLCreator.hpp"
 #include <fstream>
 #include <iostream>
-#include "String.hpp"
 #include <filesystem>
 
 using namespace Database;
 namespace fs = std::filesystem;
+
+Vector<String>* fileName;
+std::ifstream* ifile;
+std::ofstream* ofile;
 
 definitions::definitions() {
 	for (int i = 48; i < 58; i++)
@@ -16,29 +19,50 @@ definitions::definitions() {
 	for (int i = 97; i < 123; i++)
 		fungtionCharList.pushBack(char(i));
 	fungtionCharList.pushBack(char(126));
-	fungtionArgsCharList = { char(32), char(44) };
+	fungtionArgsCharList = { char(32), '&', char(44), '>', '<', ':', '*'};
 	fungtionArgsCharList += fungtionCharList;
-	blueWords = { "class", "template", "typename", "char", "int", "double", "float", "long", "short", "unsigned", "signed", "auto" };
-	greenWords = { "T" };
-	String path = "documetasion\\classes";
-	for (const auto& entry : fs::directory_iterator(toSTD(path)))
-		greenWords.pushBack(String(entry.path().string()));
+	fungtionArgsCharList.bubbleSort();
+	blueWords = { "class", "template", "typename", "char", "int", "double", "float", "long", "short", "unsigned", "signed", "auto", "const", "noexcept", "constexpr"};
+	greenWords = { "T", "sizeT"};
+	String path = "TXT/";
+	String i;
+	std::filesystem::path pathPath = toSTD(path);
+	for (const auto& files : fs::directory_iterator(pathPath)) {
+		libNames.pushBack(String(files.path().string()).split('/')[1]);
+		for (const auto& entry : fs::directory_iterator(files.path().string())) {
+			i = entry.path().string();
+			if (i.split('\\')[1] != "classes")
+				greenWords.pushBack(i.split('\\')[1]);
+		}
+	}
 }
 
 String findLocalFungtionFile(String& s) {
-	if (green((*fileName)[fileName->size() - 2], 0))
-		return "documentation/" + (*fileName)[fileName->size() - 2] + '/' + s + ".html";
-	else if (green((*fileName)[fileName->size() - 1].split('.')[0], 0))
-		return "documentation/" + (*fileName)[fileName->size() - 1].split('.')[0] + '/' + s + ".html";
-	return "";
+	if ((*fileName)[3].split('.')[0] == s || (*fileName)[2] == s)
+		return "";
+	if((*fileName)[2] == "classes")
+		return "../" + (*fileName)[3].split('.')[0] + "/" + s + ".html";
+	return "../" + (*fileName)[2] + "/" + s + ".html";
 }
 
 String findClassFile(String& s) {
-	return "documentation/classes/" + s + ".html";
+	definitions d;
+	if (s == (*fileName)[3].split('.')[0] || s == (*fileName)[2])
+		return "";
+	for (const auto& dir : fs::directory_iterator("HTML/")) {
+		if (d.libNames.linearSearch(String(dir.path().string()).split('/')[1]) != -1) {
+			for (const auto& entry : fs::directory_iterator(dir.path().string() + "/classes/")) {
+				String file = entry.path().string();
+				if (file.split('/')[3].split('.')[0] == s)
+					return "../../../" + entry.path().string();
+			}
+		}
+	}
+	return "";
 }
 
 String findClassFungtionFile(String& className, String& s) {
-	return "documentation/" + className + '/' + s + ".html";
+	return "../" + className + '/' + s + ".html";
 }
 
 bool manual(const String& s, int i) {
@@ -53,7 +77,7 @@ bool manual(const String& s, int i) {
 
 bool classFungtion(const String& s, int i) {
 	if (s[i] == '.')
-		return localFungtion(s, i);
+		return localFungtion(s, ++i);
 	return false;
 }
 
@@ -67,34 +91,43 @@ bool definitionFungtion(const String& s, int i) {
 bool localFungtion(const String& s, int i) {
 	definitions d;
 	for (; i < s.length() - 1; i++) {
-		if (s[i] == '(')
+		if (s[i] == '(') {
+			i++;
 			for (; i < s.length(); i++) {
 				if (s[i] == ')')
 					return true;
-				else if (d.fungtionArgsCharList.binarySerch(s[i]))
+				else if (s[i] == '<')
+					for (; s[i] != '>' && i < s.length(); i++);
+				else if (d.fungtionArgsCharList.binarySearch(s[i]) == -1) {
 					return false;
+				}
 			}
-
-		else if (d.fungtionCharList.binarySerch(s[i]) == -1)
+		}
+		else if (d.fungtionCharList.binarySearch(s[i]) == -1)
 			return false;
 	}
 	return false;
 }
 
 bool string(const String& s, int i) {
-	if (s[i] == '"')
+	if (s[i] == '"' || s[i] == char(39))
 		for (; i < s.length(); i++)
-			if (s[i] == '"')
+			if (s[i] == '"' || s[i] == char(39))
 				return true;
 	return false;
 }
 
 bool blue(const String& s, int i) {
-	if (s[i] == ' ')
+	if ((s[i] == ' ') || (s[i] == '>') || (s[i] == '<') || (s[i] == ';') || (s[i] == '&') || (s[i] == '*'))
 		return false;
 	definitions d;
 	String word = s(i, s.length());
 	word = word.split(' ')[0];
+	word = word.split('>')[0];
+	word = word.split('<')[0];
+	word = word.split(';')[0];
+	word = word.split('&')[0];
+	word = word.split('*')[0];
 
 	for (const String& j : d.blueWords)
 		if (word == j)
@@ -103,13 +136,18 @@ bool blue(const String& s, int i) {
 }
 
 bool green(const String& s, int i) {
-	if (s[i] == ' ')
+	if ((s[i] == '.') || (s[i] == ' ') || (s[i] == ';') || (s[i] == '>') || (s[i] == '<') || (s[i] == ')') || (s[i] == '&'))
 		return false;
 	definitions d;
 	String word = s(i, s.length());
 	word = word.split(' ')[0];
 	word = word.split('.')[0];
-
+	word = word.split(';')[0];
+	word = word.split('>')[0];
+	word = word.split('<')[0];
+	word = word.split(')')[0];
+	word = word.split('&')[0];
+	
 	for (const String& j : d.greenWords)
 		if (word == j)
 			return true;
@@ -122,7 +160,6 @@ void fileWriter(const String& s, const String type) {
 	String sub;
 	for (auto i = 0; i < s.length();) {
 		if (manual(s, i)) {
-			*ofile << '\n';
 			i++;
 			sub.clear();
 			for (; s[i] != ',' && s[i] != '>'; i++)
@@ -137,13 +174,12 @@ void fileWriter(const String& s, const String type) {
 					sub.pushBack(s[i]);
 				*ofile << " href=\"" << sub << "\"";
 			}
-			*ofile << ">";
 			sub.clear();
 			for (; s[i] != '<' && s[i + 1] != '>'; i++)
 				sub.pushBack(s[i]);
 			*ofile << sub;
 			i += 2;
-			*ofile << "</a>\n";
+			*ofile << "</a>";
 			continue;
 		}
 
@@ -153,23 +189,11 @@ void fileWriter(const String& s, const String type) {
 			i++;
 			for (bool first = true; (s[i-1] != '"' && s[i-1] != '\'') || first; first = false, i++)
 				sub.pushBack(s[i]);
-			*ofile << "<a class=\"string\">" << sub << "</a>\n";
-			continue;
-		}
-
-		if (classFungtion(s, i)) {
-			*ofile << '\n';
-			sub.clear();
-			for (; s[i] != '('; i++)
-				sub.pushBack(s[i]);
-
-			*ofile << "<a class=\"fungtion\">" << sub << "</a>\n(";
-			i++;
+			*ofile << "<a class=\"string\">" << sub << "</a>";
 			continue;
 		}
 
 		if (localFungtion(s, i)) {
-			*ofile << '\n';
 			sub.clear();
 			for (; s[i] != '('; i++)
 				sub.pushBack(s[i]);
@@ -178,21 +202,21 @@ void fileWriter(const String& s, const String type) {
 			*ofile << "<a class=\"fungtion\"";
 			if (file.length() != 0)
 				*ofile << " href=\"" << file << "\"";
-			*ofile << ">" << sub << "</a>\n(";
+			*ofile << ">" << sub << "</a>(";
+			i++;
 			continue;
 		}
 
 		if (green(s, i)) {
-			*ofile << '\n';
 			sub.clear();
-			for (; s[i] != '.' || s[i] != ' '; i++)
+			for (; (s[i] != '.') && (s[i] != ' ') && (s[i] != ';') && (s[i] != '>') && (s[i] != '<') && (s[i] != ')') && (s[i] != '&') && i < s.length(); i++)
 				sub.pushBack(s[i]);
 
 			String file = findClassFile(sub);
 			*ofile << "<a class=\"classGreen\"";
 			if (file.length() != 0)
 				*ofile << " href=\"" << file << "\"";
-			*ofile << ">" << sub << "</a>\n";
+			*ofile << ">" << sub << "</a>";
 
 			if (classFungtion(s, i)) {
 				String className = sub;
@@ -201,8 +225,8 @@ void fileWriter(const String& s, const String type) {
 				for (;s[i] != '('; i++)
 					sub.pushBack(s[i]);
 				file = findClassFungtionFile(className, sub);
-				*ofile << ".\n";
-				*ofile << "<a class=\"fungtion\" href=\"" << file << "\">" << sub << "</a>\n";
+				*ofile << ".";
+				*ofile << "<a class=\"fungtion\" href=\"" << file << "\">" << sub << "</a>";
 				*ofile << "(";
 				i++;
 			}
@@ -210,26 +234,34 @@ void fileWriter(const String& s, const String type) {
 		}
 
 		if (blue(s, i)) {
-			*ofile << '\n';
 			sub.clear();
-			for (; s[i] != ' '; i++)
+			for (; s[i] != ' ' && (s[i] != '>') && (s[i] != '<') && (s[i] != ';') && (s[i] != '&') && (s[i] != '*'); i++)
 				sub.pushBack(s[i]);
-			*ofile << "<a class=\"blue\">" << sub << "</a>\n";
+			*ofile << "<a class=\"blue\">" << sub << "</a>";
 			continue;
 		}
-
-		*ofile << s[i];
+		if (s[i] == '<')
+			if (s(i, i + 4) == "<br>") {
+				*ofile << "<br>";
+				i += 3;
+			}
+			else
+				*ofile << "&lt;";
+		else if(s[i] == '>')
+			*ofile << "&gt;";
+		else
+			*ofile << s[i];
 		i++;
 	}
-	*ofile << "<" << type.split(' ')[0] << ">\n";
+	*ofile << "</" << type.split(' ')[0] << ">\n";
 }
 
 void FungtionList(String s) {
-	Vector<String> v(s.split(':'));
+	String text = s(s.linearSearch(':') + 1, s.length());
 	*ofile << "<tr>\n"
-		<< "<th><a class = \"blue\" href = \"" + findLocalFungtionFile(v[0]) + "\">" + v[0] + "</a></th>\n"
+		<< "<th><a class = \"blue\" href = \"" + findLocalFungtionFile(s.split(':')[0]) + "\">" + s.split(':')[0] + "</a></th>\n"
 		<< "<th>";
-	fileWriter(v[1], "span");
+	fileWriter(text, "span");
 	*ofile << "</th>\n"
 		<< "</tr>\n";
 }

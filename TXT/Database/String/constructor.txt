@@ -1,0 +1,24 @@
+
+Declerations{
+1:constexpr String() noexcept;
+2:String(const String& s) noexcept;
+3:constexpr String(const char* s) noexcept;
+4:String(Vector<char> v) noexcept;
+5:String(const std::<classGreen>string<>& s) noexcept;
+}
+
+Description{
+1:Default constructor. Constructs a empty string with unspecified capacity.
+2:Copy constructor. Constructs a String identical to the input String.
+3:C string constructor. Constructs a String with all characters<br>from the char* pointer to the first '\0' character.
+4:Vector constructor. Constructs a string from a Vector of chars.
+5:std::<classGreen>string<> copy constructor. copies a std::<classGreen>string<>.
+}
+
+Complexity{
+1:constant.
+2:linear in s.size().
+3:linear in length between pointer and nearest '\0' character.
+4:linear in v.size().
+5:linear in s.length().
+}

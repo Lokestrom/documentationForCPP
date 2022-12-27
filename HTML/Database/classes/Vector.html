@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<head>
+	<link rel = "stylesheet" href="../../documentationStyles/all.css">
+	<link rel="stylesheet" href="../../documentationStyles/class.css">
+</head>
+
+<header>
+	<a class = "homeButton" href="../../main.html">Home</a>
+	<a class = "libButton" href="../Database.html">Database</a>
+    <h1 class = "white underline">Vector</h1>
+</header>
+
+<body class="background white">
+	<div>
+		<p class="header">
+			<span>Defined in header</span>
+			<a href="https://github.com/Lokestrom/database/blob/main/database/Include/Vector.hpp">"Vector.hpp"</a>
+			<br>
+			<span>Code in</span>
+			<a href="https://github.com/Lokestrom/database/blob/main/database/Include/TemplateFiles/Vector.tpp">"Vector.tpp"</a>
+		</p>
+<p class="declaration"><a class="blue">template</a> &lt;<a class="blue">typename</a> <a class="classGreen">T</a>&gt;<br><a class="blue">class</a> <a class="classGreen">Vector</a>;</p>
+</div>
+<span class="description">Class description:
+<br>
+A <a class="blue">class</a> to store elements. The elements are stored contiguously in memory.</span>
+    <br><br> 
+ <h2 style="line-height: 0px;"> Member fungtions </h2>
+
+ <table class="linkToFungtionsTable"><tr>
+<th><a class = "blue" href = "../Vector/constructor.html">constructor</a></th>
+<th><span>Constructs the <a class="classGreen">Vector</a></span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/destructor.html">destructor</a></th>
+<th><span>Destroyes the <a class="classGreen">Vector</a></span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/operator=.html">operator=</a></th>
+<th><span>asignes a new elements</span>
+</th>
+</tr>
+<tr>
+<th>
+<h4 style="line-height: 0px;">Element access</h4>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/operator[].html">operator[]</a></th>
+<th><span>accesses the sepcified index</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/operator().html">operator()</a></th>
+<th><span>returns a subvector</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/at.html">at</a></th>
+<th><span>accesses the sepcified index with range checking</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/data.html">data</a></th>
+<th><span>returns a pointer to the first element</span>
+</th>
+</tr>
+<tr>
+<th>
+<h4 style="line-height: 0px;">Iterator</h4>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/begin.html">begin</a></th>
+<th><span>returns a pointer to the first element</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/end.html">end</a></th>
+<th><span>returns a pointer to the last+1 element</span>
+</th>
+</tr>
+<tr>
+<th>
+<h4 style="line-height: 0px;">Capacity</h4>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/empty.html">empty</a></th>
+<th><span>checks if the <a class="classGreen">Vector</a> is empty</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/capacity.html">capacity</a></th>
+<th><span>returns the number of elements that can be held in currently<br>allocated storage <a class="fungtion" href="../Vector/.html"></a>(capacity of the <a class="classGreen">Vector</a>)</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/size.html">size</a></th>
+<th><span>returns the number of elements</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/reserve.html">reserve</a></th>
+<th><span>reserves storage</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/shrinkToFit.html">shrinkToFit</a></th>
+<th><span>shrinks the storage usage to the number of elements;<br>freeing up memory</span>
+</th>
+</tr>
+<tr>
+<th>
+<h4 style="line-height: 0px;">Operations</h4>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/pushBack.html">pushBack</a></th>
+<th><span>pushes an element to the end of the <a class="classGreen">Vector</a></span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/popBack.html">popBack</a></th>
+<th><span>pops the element at the end of the <a class="classGreen">Vector</a></span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/insert.html">insert</a></th>
+<th><span>inserts an element</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/pop.html">pop</a></th>
+<th><span>pops an element</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/clear.html">clear</a></th>
+<th><span>clears the <a class="classGreen">Vector</a></span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/operator+=.html">operator+=</a></th>
+<th><span>appends a <a class="classGreen">Vector</a> to the end</span>
+</th>
+</tr>
+<tr>
+<th>
+<h4 style="line-height: 0px;">Search</h4>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/linearSearch.html">linearSearch</a></th>
+<th><span>find the first occurrence of an element</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/linearSearchR.html">linearSearchR</a></th>
+<th><span>find the last occurrence of an element</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/binarySearch.html">binarySearch</a></th>
+<th><span>search for an element in a sorted <a class="classGreen">Vector</a></span>
+</th>
+</tr>
+<tr>
+<th>
+<h4 style="line-height: 0px;">Sort</h4>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/bubbleSort.html">bubbleSort</a></th>
+<th><span>sorts the <a class="classGreen">Vector</a></span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/mergeSort.html">mergeSort</a></th>
+<th><span>sorts the <a class="classGreen">Vector</a></span>
+</th>
+</tr>
+</table>
+<br>
+<h2 style = "line-height: 0px;">Non-Member fungtions</h2>
+<table class = "linkToFungtionsTable"><tr>
+<th><a class = "blue" href = "../Vector/operator==.html">operator==</a></th>
+<th><span>checks if 2 Vectors are the same</span>
+</th>
+</tr>
+<tr>
+<th><a class = "blue" href = "../Vector/operator!=.html">operator!=</a></th>
+<th><span>checks if 2 Vectors are not the same</span>
+</th>
+</tr>
+</table><br><br><br><br><br><br><br><br><br>
+</body>

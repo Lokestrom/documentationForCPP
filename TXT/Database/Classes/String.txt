@@ -1,0 +1,85 @@
+github{
+https://github.com/Lokestrom/database/blob/main/database/Include/String.hpp
+cpp:https://github.com/Lokestrom/database/blob/main/database/scr/String.cpp
+}
+
+class declaration{
+class String;
+}
+
+class description{
+The string is just a Vector<char> with more fungtions to work with the string
+}
+
+member fungtions{
+Constructor:Constructs the String
+operator=:assignes a value to the String
+
+Element access{
+operator[]:accesses the sepcified index
+operator():returns a substring
+at:accesses the sepcified index with range checking
+data:returnss a pointer ro the first character
+vectorData:returns the vector of the String
+}
+
+Iterator{
+begin:returns a pointer to the first character
+end:returns a pointer to the last+1 character
+}
+
+Capacity{
+empty:checks if the String is empty
+capacity:returns the number of characters that can be held in currently<br>allocated storage (capacity of the Vector)
+length:returns the number of characters
+reserve:reserves storage
+shrinkToFit:shrinks the storage use to the number of characters;<br>freeing up memory
+}
+
+Operations{
+pushBack:pushes a character to the end of the String
+popBack:pops the character at the end of the String
+insert:inserts characters
+pop:pops characters
+clear:clears the string
+lower:converts the String to lowercase
+upper:converts the String to uppercase
+operator+=:appends characters to the end
+split:splits the string in to a Vector of strings
+}
+
+Search{
+contains:checks if the String contains a substring
+linearSearch:find the first occurrence of a substring
+linearSearchR:find the last occurrence of a substring
+binarySearch:search for a character in a sorted String
+}
+
+Sort{
+mergeSort:merge sorts the String
+bubbleSort:bubble sorts the String
+}
+}
+
+non-member fungtions{
+operator+:adds to strings together
+operator==:checks if to Strings are the same
+operator!=:checks if to Strings are not the same
+
+Input/Output{
+operator<<:stream output
+operator>>:stream input
+getline:gets a line from file
+}
+
+Conversion{
+toS:converts numbers to String
+STo...:converts String to number
+toSTD:returns an std::string
+}
+
+Operations{
+substringIndex:returns the index of a substring
+canStringConvertToNumber:checks if the string can be converted to a number
+}
+}

@@ -1,9 +1,14 @@
-Vector<String>* fileName;
-std::ifstream* ifile;
-std::ofstream* ofile;
+#include <Vector.hpp>
+#include <String.hpp>
+using namespace Database;
+
+extern Vector<String>* fileName;
+extern std::ifstream* ifile;
+extern std::ofstream* ofile;
 
 class definitions {
 public:
+	Vector<String> libNames;
 	Vector<char> fungtionCharList;
 	Vector<char> fungtionArgsCharList;
 	Vector<String> blueWords;

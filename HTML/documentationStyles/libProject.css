@@ -1,0 +1,31 @@
+.homeButton {
+    float: left;
+    position: fixed;
+    left: 3%;
+    color: #5395c2;
+    font-family: Consolas;
+    font-size: 35px;
+}
+
+.list {
+    line-height: 35px;
+    color: #ced3d8;
+    font-family: Consolas;
+}
+
+.list li {
+    font-size: 25px;
+}
+
+.list li a {
+    color: #5395c2;
+}
+
+.GitHub {
+    font-family: Consolas;
+    font-size: 15px;
+}
+
+.GitHub a {
+    color: #5395c2;
+}

@@ -30,10 +30,32 @@
     <ClCompile Include="Cpp\MainCreator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Cpp\LibraryAndProjectPageCreator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cpp\HTMLCreator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Cpp\ClassCreator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cpp\FungtionCreator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cpp\LibraryAndProjectPageCreator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cpp\MainCreator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HTML\Database\String\pop.html" />
+    <None Include="HTML\Database\database.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TXT\Database\String\constructor.txt" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,23 @@
+Declerations{
+1:String& operator=(const String& s) noexcept;
+2:constexpr String& operator=(const char* s) noexcept;
+3:String& operator=(const std::<classGreen>string<>& s);
+4:String& operator=(const Vector<char>& v);
+5:String& operator=(const std::<classGreen>initializer_list<><char>& iList) noexcept;
+}
+
+Description{
+1:Copy constructor. Constructs a String identical to the input String.
+2:Assignes a C string to the String. Assignes all characters<br>from the char* pointer to the first '\0' character.
+3:Assignes a std::<classGreen>string<> to the String.
+4:Assignes the character from a Vector<char> to the String.
+5:Assignes the character from a std::<classGreen>initializer_list<><char> to the String.
+}
+
+Complexity{
+1:linear in s.size().
+2:linear in length between pointer and nearest '\0' character.
+3:linear in s.size().
+4:linear in v.length().
+5:linear in iList.length().
+}

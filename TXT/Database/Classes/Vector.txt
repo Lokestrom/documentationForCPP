@@ -1,0 +1,64 @@
+github{
+https://github.com/Lokestrom/database/blob/main/database/Include/Vector.hpp
+tpp:https://github.com/Lokestrom/database/blob/main/database/Include/TemplateFiles/Vector.tpp
+}
+
+class declaration{
+template <typename T>
+class Vector;
+}
+
+class description{
+A class to store elements. The elements are stored contiguously in memory.
+}
+
+member fungtions{
+constructor:Constructs the Vector
+destructor:Destroyes the Vector
+operator=:asignes a new elements
+
+Element access{
+operator[]:accesses the sepcified index
+operator():returns a subvector
+at:accesses the sepcified index with range checking
+data:returns a pointer to the first element
+}
+
+Iterator{
+begin:returns a pointer to the first element
+end:returns a pointer to the last+1 element
+}
+
+Capacity{
+empty:checks if the Vector is empty
+capacity:returns the number of elements that can be held in currently<br>allocated storage (capacity of the Vector)
+size:returns the number of elements
+reserve:reserves storage
+shrinkToFit:shrinks the storage usage to the number of elements;<br>freeing up memory
+}
+
+Operations{
+pushBack:pushes an element to the end of the Vector
+popBack:pops the element at the end of the Vector
+insert:inserts an element
+pop:pops an element
+clear:clears the Vector
+operator+=:appends a Vector to the end
+}
+
+Search{
+linearSearch:find the first occurrence of an element
+linearSearchR:find the last occurrence of an element
+binarySearch:search for an element in a sorted Vector
+}
+
+Sort{
+bubbleSort:sorts the Vector
+mergeSort:sorts the Vector
+}
+}
+
+non-member fungtions{
+operator==:checks if 2 Vectors are the same
+operator!=:checks if 2 Vectors are not the same
+}

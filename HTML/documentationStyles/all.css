@@ -2,7 +2,7 @@
     background-color: #1e1e1e;
     float: left;
     position: relative;
-    left: 25%;
+    left: 30%;
     text-align: left;
     font-size: 18px;
 }
@@ -38,7 +38,7 @@
     font-family: Consolas;
 }
 
-.classgreen {
+.classGreen {
     color: #49bc8c;
     font-family: Consolas;
 }
