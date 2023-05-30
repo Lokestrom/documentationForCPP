@@ -1,29 +1,30 @@
-#include "FungtionCreator.hpp"
+#include "FunctionCreator.hpp"
 #include "HTMLCreator.hpp"
 
 #include <fstream>
 #include <iostream>
 
 
-void fungtionCreator(String fullFileName) {
+void functionCreator(String fullFileName) {
 	fileName = new Vector<String>(fullFileName.split('/'));
-	String FungtionName = fileName->operator[](fileName->size() - 1);
-	FungtionName = FungtionName.split('.')[0];
+	String functionName = returnDecryptedFileName(fileName->operator[](fileName->size() - 1));
+	functionName = functionName.split('.')[0];
 	ifile = new std::ifstream(toSTD(fullFileName));
-	ofile = new std::ofstream("HTML\\" + toSTD(fileName->operator[](1)) + "\\" +toSTD(fileName->operator[](2)) + "\\" + toSTD(FungtionName) + ".html");
+	ofile = new std::ofstream("HTML\\" + toSTD(fileName->operator[](1)) + "\\" +toSTD(fileName->operator[](2)) + "\\" + toSTD(returnencryptedFileName(functionName)) + ".html");
+	std::cout << "HTML\\" + toSTD(fileName->operator[](1)) + "\\" + toSTD(fileName->operator[](2)) + "\\" + toSTD(returnencryptedFileName(functionName)) + ".html" << "\n";
 	String text;
 
 	*ofile << "<!DOCTYPE html>\n"
 		<< "<head>\n"
 		<< "	<link rel=\"stylesheet\" href=\"../../documentationStyles/all.css\">\n"
-		<< "	<link rel=\"stylesheet\" href=\"../../documentationStyles/fungtion.css\">\n"
+		<< "	<link rel=\"stylesheet\" href=\"../../documentationStyles/function.css\">\n"
 		<< "</head>\n"
 		<< "<header>\n"
 		<< "	<a class=\"homeButton\" href=\"../../main.html\">Home</a>\n"
 		<< "	<a class=\"libButton\" href=\"../" + toSTD(fileName->operator[](1)) + ".html\">" + toSTD(fileName->operator[](1)) + "</a>\n"
 		<< "	<a class=\"toClassButton\" href=\"../classes/" + toSTD(fileName->operator[](2)) + ".html\">" + toSTD(fileName->operator[](2)) + "</a>\n"
 		<< "	<h1 class=\"white underline\">" + toSTD(fileName->operator[](2)) + " documentation</h1>\n"
-		<< "	<h2 class=\"white\">" + FungtionName + "</h2>\n"
+		<< "	<h2 class=\"white\">" + functionName + "</h2>\n"
 		<< "</header>\n\n"
 		<< "<body class=\"background white\">\n"
 		<< "    <table class=\"declarationTable\">";
@@ -67,14 +68,15 @@ void fungtionCreator(String fullFileName) {
 		break;
 	}
 
-	*ofile << "</table>"
-		<< "<h3 class=\"underline\">Complexity</h3>"
-		<< "<table class = \"textTable\">";
+	*ofile << "</table>";
+
 
 	while (getline(*ifile, text)) {
 		text.lower();
 		if (!text.contains("complexity"))
 			continue;
+		*ofile << "<h3 class=\"underline\">Complexity</h3>"
+			<< "<table class = \"textTable\">";
 		while (getline(*ifile, text) && !text.contains("}")) {
 			if (!text.contains(":"))
 				continue;

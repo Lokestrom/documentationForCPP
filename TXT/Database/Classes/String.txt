@@ -8,10 +8,10 @@ class String;
 }
 
 class description{
-The string is just a Vector<char> with more fungtions to work with the string
+The string is just a Vector<char> with more functions to work with the string
 }
 
-member fungtions{
+member functions{
 Constructor:Constructs the String
 operator=:assignes a value to the String
 
@@ -46,6 +46,7 @@ lower:converts the String to lowercase
 upper:converts the String to uppercase
 operator+=:appends characters to the end
 split:splits the string in to a Vector of strings
+remove:removes a char from the string
 }
 
 Search{
@@ -61,7 +62,7 @@ bubbleSort:bubble sorts the String
 }
 }
 
-non-member fungtions{
+non-member functions{
 operator+:adds to strings together
 operator==:checks if to Strings are the same
 operator!=:checks if to Strings are not the same

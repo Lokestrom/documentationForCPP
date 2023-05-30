@@ -12,7 +12,7 @@ class description{
 A class to store elements. The elements are stored contiguously in memory.
 }
 
-member fungtions{
+member functions{
 constructor:Constructs the Vector
 destructor:Destroyes the Vector
 operator=:asignes a new elements
@@ -58,7 +58,7 @@ mergeSort:sorts the Vector
 }
 }
 
-non-member fungtions{
+non-member functions{
 operator==:checks if 2 Vectors are the same
 operator!=:checks if 2 Vectors are not the same
 }

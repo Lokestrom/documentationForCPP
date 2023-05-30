@@ -3,4 +3,4 @@
 #include "String.hpp"
 using namespace Database;
 
-void fungtionCreator(String fileName);
+void functionCreator(String fileName);

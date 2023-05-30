@@ -1,0 +1,15 @@
+Declerations{
+1:constexpr char& <functionYellow>operator[]<>(const <classGreen>size_t<> index) noexcept;
+2:constexpr char& operator[](const <classGreen>size_t<> index) const noexcept;
+
+}
+
+Description{
+1:Returns the char at index.
+2:Teturns the const char at index.
+}
+
+Complexity{
+1:Constant time.
+2:Constant time.
+}

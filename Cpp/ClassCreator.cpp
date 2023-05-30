@@ -77,19 +77,19 @@ void classCreator(String fullFileName)
 
 	while (getline(*ifile, text)) {
 		text.lower();
-		if (!text.contains("member fungtions"))
+		if (!text.contains("member functions"))
 			continue;
-		*ofile << "    <br><br> \n <h2 style=\"line-height: 0px;\"> Member fungtions </h2>\n\n <table class=\"linkToFungtionsTable\">";
+		*ofile << "    <br><br> \n <h2 style=\"line-height: 0px;\"> Member functions </h2>\n\n <table class=\"linkTofunctionsTable\">";
 		getline(*ifile, text);
 		for (; text != "}"; getline(*ifile, text)) {
 			if (text.contains(":")) 
-				FungtionList(text);
+				functionList(text);
 
 			else if (text.contains("{")) {
 				subList(text(0, text.length()));
 				for (; text != "}"; getline(*ifile, text))
 					if (text.contains(":"))
-						FungtionList(text);
+						functionList(text);
 			}
 		}
 		*ofile << "</table>\n";
@@ -98,19 +98,19 @@ void classCreator(String fullFileName)
 
 	while (getline(*ifile, text)) {
 		text.lower();
-		if (!text.contains("non-member fungtions"))
+		if (!text.contains("non-member functions"))
 			continue;
-		*ofile <<  "<br>\n<h2 style = \"line-height: 0px;\">Non-Member fungtions</h2>\n<table class = \"linkToFungtionsTable\">";
+		*ofile <<  "<br>\n<h2 style = \"line-height: 0px;\">Non-Member functions</h2>\n<table class = \"linkTofunctionsTable\">";
 		getline(*ifile, text);
 		for (; text != "}"; getline(*ifile, text)) {
 			if (text.contains(":"))
-				FungtionList(text);
+				functionList(text);
 
 			else if (text.contains("{")) {
 				subList(text(0, text.length()));
 				for (; text != "}"; getline(*ifile, text))
 					if (text.contains(":"))
-						FungtionList(text);
+						functionList(text);
 			}
 		}
 		*ofile << "</table>";

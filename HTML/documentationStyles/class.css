@@ -12,7 +12,7 @@
     float: top;
     position: fixed;
     left: 3%;
-    top: 7%;
+    top: 80px;
     color: #5395c2;
     font-family: Consolas;
     font-size: 35px;
@@ -42,29 +42,29 @@
     font-size: 15px;
 }
 
-.linkToFungtionsTable {
+.linkTofunctionsTable {
     font-family: Consolas;
     font-size: 0;
     border-collapse: collapse;
     line-height: 20px;
 }
 
-.linkToFungtionsTable h4 {
+.linkTofunctionsTable h4 {
     font-size: 19px;
 }
 
-.linkToFungtionsTable tr {
+.linkTofunctionsTable tr {
     border: solid;
     border-width: 2px 0;
 }
 
-.linkToFungtionsTable tr:first-child {
+.linkTofunctionsTable tr:first-child {
     color: #5395c2;
     border-color: #ced3d8;
     font-size: 17px;
 }
 
-.linkToFungtionsTable tr th {
+.linkTofunctionsTable tr th {
     color: #ced3d8;
     font-size: 15px;
 }

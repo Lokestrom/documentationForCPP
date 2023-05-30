@@ -1,0 +1,10 @@
+Declerations{
+1:friend std::ostream& operator<<(std::ostream& output, const String& s) noexcept;
+2:friend std::ofstream& operator<<(std::ofstream& output, const String& s) noexcept;
+
+}
+
+Description{
+1:Streams to the stream.
+2:Streams to a file.
+}
