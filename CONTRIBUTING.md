@@ -4,6 +4,7 @@ Editing of the content happens in the ".txt" files found in the TXT folder.
 the TXT folder contains folder for all the libraryes and projects.<br>
 In the library folders there is a classes folder containing the ".txt" files for the classes.<br>
 And a folder for each of the classes containing the functions that involve the class.<br>
+**NB:** invalid characters in file names are replaced by char("ascii code"). Eks '/' -> char(57).
 
 **Before pushing to the repo run the [CompileAll.cpp](Cpp/CompileAll.cpp) file in the Cpp folder.<br>
 Check that the ".html" file it looks like it should in the browser.**
@@ -21,7 +22,7 @@ Feks: <exampleColor exampleClass, example/link/example.html>example text<>
 Costum color, other classes: <color or other classes>text<>.<br>
 Costum link <,link>text<>.<br>
 **Make sure that the color or other class that you use are defined in [HTML/documentationStyles/all.css](HTML/documentationStyles/all.css).<br>
-The color and other classes are separated by a space.**<br>
+The color and other classes are separated by a space like in normal HTML.**<br>
 
 ## The class files are structured like this:
 ```
@@ -76,4 +77,4 @@ Complexity{
 1:the time complexity of the function
 }
 ```
-This explanation may be somewhat confusing, but if you take a look at the ".txt" files, it should clarify things.
+This explanation may be somewhat confusing, but if you take a look at the other ".txt" files, it should clarify things.
