@@ -16,7 +16,8 @@ Strings are colored brown ![#d1895e](https://placehold.co/15x15/d1895e/d1895e.pn
 This should be done automaticly when runing [CompileAll.cpp](Cpp/CompileAll.cpp).<br>
 
 ### Manualy define colores, other atibutes or links to text:
-Costum color, other classes og link: <color or other classes, link>text<>.<br>
+Costum color, other classes and link: <color or other classes, link>text<>.<br>
+Feks: <exampleColor exampleClass, example/link/example.html>example text<>
 Costum color, other classes: <color or other classes>text<>.<br>
 Costum link <,link>text<>.<br>
 **Make sure that the color or other class that you use are defined in [HTML/documentationStyles/all.css](HTML/documentationStyles/all.css).<br>
